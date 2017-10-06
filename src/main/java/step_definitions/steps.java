@@ -18,6 +18,7 @@ public class steps extends abstractdriver {
 	@Given("^I went to gmail\\.com$")
 	public void i_went_to_gmail_com() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
+		System.out.println("step 1.......");
 		driver.get("http:\\gmail.com");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
