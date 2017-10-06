@@ -48,7 +48,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Oct 6, 2017 03:15:38 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Oct 6, 2017 03:40:12 PM</span>
 				</a>
 			</li>
 			<li>
@@ -186,12 +186,12 @@
 				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>judge group</span>
-						<span class='test-time'>Oct 6, 2017 03:15:39 PM</span>
+						<span class='test-time'>Oct 6, 2017 03:40:12 PM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenario node' test-id='2' status='fail'>
-	<span class='duration right label'>0h 0m 17s+496ms</span>
+	<span class='duration right label'>0h 0m 46s+35ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">Title of your scenario</span>
@@ -210,12 +210,13 @@
 			<b>When</b>
 			
 			<span class="bdd-step-name">When I entered username and password</span>
-				<div class='pre'><pre>org.openqa.selenium.WebDriverException: Failed to decode response from marionette
+				<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: #email
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
 System info: host: 'DESKTOP-NM5QFP1', ip: '192.168.120.213', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.dORc10LHVPtb, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=XP, specificationLevel=0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=55.0.3, platformVersion=10.0, moz:processID=24748, browserName=firefox, javascriptEnabled=true, platformName=XP}]
-Session ID: 77b9942a-3764-497d-a477-b34ba83654bb
+Capabilities [{moz:profile=C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.Vm3kdysc8CZ6, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=XP, specificationLevel=0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=55.0.3, platformVersion=10.0, moz:processID=5548, browserName=firefox, javascriptEnabled=true, platformName=XP}]
+Session ID: 10c1f564-1102-4203-8141-3a86eae65790
 *** Element info: {Using=id, value=email}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -231,7 +232,7 @@ Session ID: 77b9942a-3764-497d-a477-b34ba83654bb
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:462)
 	at org.openqa.selenium.By$ById.findElement(By.java:218)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
-	at step_definitions.steps.i_entered_username_and_password(steps.java:29)
+	at step_definitions.steps.i_entered_username_and_password(steps.java:30)
 	at ?.When I entered username and password(C:/Users/Adminindia/workspace/anubhav/cookies/src/test.feature:8)
 </pre></div>
 			
@@ -323,7 +324,7 @@ Session ID: 77b9942a-3764-497d-a477-b34ba83654bb
 								</thead>
 								<tbody>
 									<tr>
-										<td>Oct 6, 2017 03:15:39 PM</td>
+										<td>Oct 6, 2017 03:40:12 PM</td>
 										<td class='linked' test-id='1'>judge group</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
@@ -371,7 +372,7 @@ Session ID: 77b9942a-3764-497d-a477-b34ba83654bb
 
                         <li class='exception displayed active'>
                             <div class='exception-heading'>
-                                <span class='exception-name'>org.openqa.selenium.WebDriverException</span>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
                                 <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
                             </div>
                             <div class='exception-content hide'>
@@ -386,14 +387,15 @@ Session ID: 77b9942a-3764-497d-a477-b34ba83654bb
                                         </thead>
                                         <tbody>
                                                     <tr>
-                                                        <td>Oct 6, 2017 03:15:54 PM</td>
+                                                        <td>Oct 6, 2017 03:40:28 PM</td>
                                                         <td class='linked' test-id='4'>judge group.Title of your scenario.When I entered username and password</td>
-                                                        <td><pre><pre>org.openqa.selenium.WebDriverException: Failed to decode response from marionette
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: #email
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
 System info: host: 'DESKTOP-NM5QFP1', ip: '192.168.120.213', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.dORc10LHVPtb, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=XP, specificationLevel=0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=55.0.3, platformVersion=10.0, moz:processID=24748, browserName=firefox, javascriptEnabled=true, platformName=XP}]
-Session ID: 77b9942a-3764-497d-a477-b34ba83654bb
+Capabilities [{moz:profile=C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.Vm3kdysc8CZ6, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=XP, specificationLevel=0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=55.0.3, platformVersion=10.0, moz:processID=5548, browserName=firefox, javascriptEnabled=true, platformName=XP}]
+Session ID: 10c1f564-1102-4203-8141-3a86eae65790
 *** Element info: {Using=id, value=email}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -409,7 +411,7 @@ Session ID: 77b9942a-3764-497d-a477-b34ba83654bb
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:462)
 	at org.openqa.selenium.By$ById.findElement(By.java:218)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
-	at step_definitions.steps.i_entered_username_and_password(steps.java:29)
+	at step_definitions.steps.i_entered_username_and_password(steps.java:30)
 	at ?.When I entered username and password(C:/Users/Adminindia/workspace/anubhav/cookies/src/test.feature:8)
 </pre></pre></td>
                                                     </tr>
@@ -455,19 +457,19 @@ Session ID: 77b9942a-3764-497d-a477-b34ba83654bb
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Oct 6, 2017 03:15:38 PM</div>
+					<div class='panel-lead'>Oct 6, 2017 03:40:12 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Oct 6, 2017 03:15:56 PM</div>
+			 		<div class='panel-lead'>Oct 6, 2017 03:40:58 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>17,564ms</div>
+					<div class='panel-lead'>46,104ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
