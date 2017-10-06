@@ -3,6 +3,8 @@ package cookies;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import cucumber.api.java.Before;
+
 public class abstractdriver {
 	public static WebDriver driver;
 	
