@@ -47,7 +47,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Oct 6, 2017 06:04:01 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Apr 12, 2018 04:39:05 PM</span>
 				</a>
 			</li>
 			<li>
@@ -148,7 +148,7 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -182,39 +182,49 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>judge group</span>
-						<span class='test-time'>Oct 6, 2017 06:04:01 PM</span>
+						<span class='test-name'>General</span>
+						<span class='test-time'>Apr 12, 2018 04:39:05 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenario node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 18s+393ms</span>
+	<span class='duration right label'>0h 0m 17s+659ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
-		<span class="desc-text">Title of your scenario</span>
+		<span class="desc-text">Verify Website is opening or not</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='3' class='node given pass' status='pass'>
 			
 			<b>Given</b>
 			
-			<span class="bdd-step-name">Given I went to gmail.com</span>
+			<span class="bdd-step-name">Given I entered  website url in browser</span>
+				<div class='pre'><table><tr><td>url</td><td>https://2.stage.insomniacookies.com/</td></tr></table></div>
 				<div class='pre'>passed</div>
 			
 		</li>
-		<li test-id='4' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">When I entered username and password</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='5' class='node then pass' status='pass'>
+		<li test-id='4' class='node then pass' status='pass'>
 			
 			<b>Then</b>
 			
-			<span class="bdd-step-name">Then I should get logged in successfully</span>
+			<span class="bdd-step-name">Then I should be able to access the site with given "url" successfully</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='5' status='pass'>
+	<span class='duration right label'>0h 0m 0s+93ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify Website logo is displayed  in Header</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='6' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Insomnia cookies website logo should be displayed in header</span>
 				<div class='pre'>passed</div>
 			
 		</li>
@@ -297,8 +307,8 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Oct 6, 2017 06:04:01 PM</td>
-										<td class='linked' test-id='1'>judge group</td>
+										<td>Apr 12, 2018 04:39:05 PM</td>
+										<td class='linked' test-id='1'>General</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -333,7 +343,7 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
@@ -345,19 +355,19 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Oct 6, 2017 06:04:01 PM</div>
+					<div class='panel-lead'>Apr 12, 2018 04:39:05 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Oct 6, 2017 06:04:19 PM</div>
+			 		<div class='panel-lead'>Apr 12, 2018 04:39:23 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>18,454ms</div>
+					<div class='panel-lead'>17,867ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -398,7 +408,7 @@
 				skipParent: 0,
 				exceptionsParent: 0,
 				
-				passChild: 1,
+				passChild: 2,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,

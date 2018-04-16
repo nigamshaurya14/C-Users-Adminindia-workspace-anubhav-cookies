@@ -8,10 +8,10 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(format = { "pretty", "json:target/json/output.json" }, features = {
-		"C:\\Users\\Adminindia\\workspace\\anubhav\\cookies\\src\\test.feature" }, glue = {
-				"step_definitions" }, tags = {
-						"@tag1" }, plugin = { "com.cucumber.listener.ExtentCucumberFormatter:output/report.html" })
+@CucumberOptions(format = { "pretty", "json:target/json/output.json" }, 
+features = {"src/main/java/Feature" },
+glue = {"step_definitions" },
+tags = {"@tag1" }, plugin = { "com.cucumber.listener.ExtentCucumberFormatter:output/report.html" })
 
 public class RunnerTest {
 	@AfterClass
