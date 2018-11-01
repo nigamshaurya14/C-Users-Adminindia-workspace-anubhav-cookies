@@ -8,10 +8,8 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(format = { "pretty", "json:target/json/output.json" }, 
-features = {"src/main/java/Feature" },
-glue = {"step_definitions" },
-tags = {"@tag1" }, plugin = { "com.cucumber.listener.ExtentCucumberFormatter:output/report.html" })
+@CucumberOptions(format = { "pretty", "json:target/json/output.json" }, features = { "src/test/resources/Feature"}, glue = {
+		"step_definitions" } ,tags= {"@tag4" }, plugin = { "com.cucumber.listener.ExtentCucumberFormatter:output/report.html" })
 
 public class RunnerTest {
 	@AfterClass
@@ -19,7 +17,7 @@ public class RunnerTest {
 
 		Reporter.loadXMLConfig(new File("target/extent-config.xml"));
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
-		Reporter.setSystemInfo("os", "Mac OSX");
+		Reporter.setSystemInfo("os", "Windows 10");
 		Reporter.setTestRunnerOutput("Sample test runner output message");
 	}
 }

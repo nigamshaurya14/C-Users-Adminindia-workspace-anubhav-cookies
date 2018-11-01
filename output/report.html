@@ -47,7 +47,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Apr 12, 2018 04:39:05 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Nov 1, 2018 05:48:29 PM</span>
 				</a>
 			</li>
 			<li>
@@ -85,7 +85,7 @@
 					<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@tag1</a></li>
+					<li><a href='#'>@tag4</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -148,7 +148,7 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -163,7 +163,7 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>15</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -182,49 +182,142 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>General</span>
-						<span class='test-time'>Apr 12, 2018 04:39:05 PM</span>
+						<span class='test-name'>Order</span>
+						<span class='test-time'>Nov 1, 2018 05:48:29 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenario node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 17s+659ms</span>
+	<div class='category-list'>
+		<span class='category label white-text'>@tag4</span>
+	</div>
+	<span class='duration right label'>0h 1m 48s+338ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
-		<span class="desc-text">Verify Website is opening or not</span>
+		<span class="desc-text">Verify User is able to place a Pickup order with Gift Card</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='3' class='node given pass' status='pass'>
 			
 			<b>Given</b>
 			
-			<span class="bdd-step-name">Given I entered  website url in browser</span>
+			<span class="bdd-step-name">Given User opens the Website</span>
 				<div class='pre'><table><tr><td>url</td><td>https://2.stage.insomniacookies.com/</td></tr></table></div>
 				<div class='pre'>passed</div>
 			
 		</li>
-		<li test-id='4' class='node then pass' status='pass'>
+		<li test-id='4' class='node given pass' status='pass'>
 			
-			<b>Then</b>
+			<b>Given</b>
 			
-			<span class="bdd-step-name">Then I should be able to access the site with given "url" successfully</span>
+			<span class="bdd-step-name">Given user clicks on Order button</span>
 				<div class='pre'>passed</div>
 			
 		</li>
-	</ul>
-</div>
-<div class='scenario node' test-id='5' status='pass'>
-	<span class='duration right label'>0h 0m 0s+93ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">Verify Website logo is displayed  in Header</span>
-	</div>
-	<ul class='steps'>
+		<li test-id='5' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When user enters the address</span>
+				<div class='pre'><table><tr><td>address</td><td>4319 Main St Philadelphia, PA</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
 		<li test-id='6' class='node and pass' status='pass'>
 			
 			<b>And</b>
 			
-			<span class="bdd-step-name">And Insomnia cookies website logo should be displayed in header</span>
+			<span class="bdd-step-name">And user clicks on Pickup button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='7' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And user select Date and Time from Calendar</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='8' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And user clicks on Continue</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='9' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And On Menu Page click on The Major Rager</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='10' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And user clicks on add product</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='11' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And user goes to the cart</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='12' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And user clicks on the checkout button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='13' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And user enters into your Info</span>
+				<div class='pre'><table><tr><td>customer name</td><td>Shaurya Nigam</td></tr><tr><td>customer phone</td><td>3457689024</td></tr><tr><td>customer emailID</td><td>snigam@judge.com</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='14' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And user selects Payment Method as Gift card</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='15' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And user enters Gift card number</span>
+				<div class='pre'><table><tr><td>Gift Card</td><td>9999998888877652</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='16' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And user clicks on Place Order</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='17' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Order confirmation page should appear displaying Order summary</span>
 				<div class='pre'>passed</div>
 			
 		</li>
@@ -284,7 +377,7 @@
 				
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@tag1</span>
+						<span class='category-name'>@tag4</span>
 						<span class='category-status right'>
 							<span class='label pass'>1</span>
 						</span>
@@ -307,8 +400,8 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Apr 12, 2018 04:39:05 PM</td>
-										<td class='linked' test-id='1'>General</td>
+										<td>Nov 1, 2018 05:48:29 PM</td>
+										<td class='linked' test-id='2'>Order.Verify User is able to place a Pickup order with Gift Card</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -343,31 +436,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>2</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>3</div>
+					<div class='panel-lead'>15</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Apr 12, 2018 04:39:05 PM</div>
+					<div class='panel-lead'>Nov 1, 2018 05:48:29 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Apr 12, 2018 04:39:23 PM</div>
+			 		<div class='panel-lead'>Nov 1, 2018 05:50:17 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>17,867ms</div>
+					<div class='panel-lead'>108,505ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -382,7 +475,7 @@
 							<th>Others</th>
 						</tr>
 						<tr>
-							<td>@tag1</td>
+							<td>@tag4</td>
 							<td>1</td>
 							<td>0</td>
 							<td>0</td>
@@ -408,7 +501,7 @@
 				skipParent: 0,
 				exceptionsParent: 0,
 				
-				passChild: 2,
+				passChild: 1,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
@@ -417,7 +510,7 @@
 				infoChild: 0,
 				exceptionsChild: 0,
 				
-				passGrandChild: 3,
+				passGrandChild: 15,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
