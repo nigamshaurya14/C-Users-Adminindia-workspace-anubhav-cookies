@@ -1,0 +1,243 @@
+package cookies;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.gargoylesoftware.htmlunit.javascript.host.xml.XMLHttpRequest;
+
+public class BackEndLinkValidation {
+
+	private static WebDriver driver = null;
+
+	public static void main(String[] args) throws Throwable {
+
+		String homePage = "https://20.stage.insomniacookies.com/admin";
+		String url = "";
+		HttpURLConnection huc = null;
+		XMLHttpRequest req=null;
+		int respCode = 200;
+		String expectedErrorTitle = "Whoops! There was an error.";
+		String filePath = "C:\\Users\\Adminindia\\workspace\\anubhav\\cookies\\src\\main\\backend_links_validation_output.xlsx";
+		String driverPath = "C:\\Users\\Adminindia\\Downloads\\geckodriver-v0.19.0-win64";
+		System.out.println("launching firefox browser");
+		System.setProperty("webdriver.gecko.driver", driverPath + "\\geckodriver.exe");
+		driver = new FirefoxDriver();
+
+		driver.manage().window().maximize();
+
+		driver.get(homePage);
+		driver.findElement(By.id("username")).sendKeys("Snigam_IT Manager");
+		driver.findElement(By.id("password")).sendKeys("password");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id=\"frmLogin\"]/fieldset/button")).click();
+		Thread.sleep(5000);
+
+		broken_link_guru objExcelFile = new broken_link_guru();
+
+		List<WebElement> links = driver.findElements(By.tagName("a"));
+		links.addAll(driver.findElements(By.tagName("img")));
+
+		Iterator<WebElement> it = links.iterator();
+
+		while (it.hasNext()) {
+
+			url = it.next().getAttribute("href");
+
+			System.out.println(url);
+
+			if (url == null || url.isEmpty()) {
+				System.out.println("URL is either not configured for anchor tag or it is empty");
+				Thread.sleep(3000);
+				objExcelFile.writeExcel(filePath, "skipped_links", url);
+				continue;
+			}
+
+			if (!url.startsWith(homePage)) {
+
+				System.out.println("URL belongs to another domain, skipping it.");
+				Thread.sleep(3000);
+
+				objExcelFile.writeExcel(filePath, "skipped_links", url);
+				continue;
+			}
+
+			try {
+				//xhr=(XMLHttpRequest) (new XMLHTTPRequest());
+				 //var idField = document.getElementById("userid");
+				   // url = "validate?id=" + encodeURIComponent(idField.value);
+				  /* if (req==null) {
+				       req = new XMLHttpRequest();
+				   } else if (window.ActiveXObject) {
+				       req = new ActiveXObject("Microsoft.XMLHTTP");
+				       
+				   }
+				   req.open("HEAD", url, true, null, null);
+				   req.onreadystatechange = callback();*/
+				
+				
+				huc = (HttpURLConnection) (new URL(url).openConnection());
+
+				huc.setRequestMethod("HEAD");
+
+				huc.connect();
+
+				respCode = huc.getResponseCode();
+
+				if (respCode != 200) {
+					System.out.println(url + " is a broken link with " + respCode + " Error");
+
+					objExcelFile.writeExcel(filePath, "broken_links", url);
+
+				} else {
+
+					String Actualtitle = driver.getTitle();
+					if (Actualtitle.contentEquals(expectedErrorTitle)) {
+						System.out.println(url + " is a broken link");
+						objExcelFile.writeExcel(filePath, "broken_links", url);
+
+					}
+
+					else {
+
+						System.out.println(url + " is a valid link");
+						objExcelFile.writeExcel(filePath, "valid_links", url);
+					}
+				}
+			}
+
+			catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
+
+		File inputFile = new File(
+				"C:\\Users\\Adminindia\\workspace\\anubhav\\cookies\\src\\main\\backend_links_validation_output.xlsx");
+		FileInputStream fis = new FileInputStream(inputFile);
+		XSSFWorkbook inputWorkbook = new XSSFWorkbook(fis);
+		int inputSheetCount = inputWorkbook.getNumberOfSheets();
+		System.out.println("Input sheetCount: " + inputSheetCount);
+
+		// Locate path and file of output excel.
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd_MM_yyyy____HH_mm_ss");
+		File outputFile = new File("C:\\Users\\Adminindia\\workspace\\anubhav\\cookies\\src\\main\\backend_links"
+				+ dateFormat.format(date) + ".xlsx");
+
+		FileOutputStream fos = new FileOutputStream(outputFile);
+
+		// Creating workbook for output excel file.
+		XSSFWorkbook outputWorkbook = new XSSFWorkbook();
+
+		// Creating sheets with the same name as appearing in input file.
+		for (int i = 0; i < inputSheetCount; i++) {
+			XSSFSheet inputSheet = inputWorkbook.getSheetAt(i);
+			String inputSheetName = inputWorkbook.getSheetName(i);
+			XSSFSheet outputSheet = outputWorkbook.createSheet(inputSheetName);
+
+			// Create and call method to copy the sheet and content in new
+			// workbook.
+			copySheet(inputSheet, outputSheet);
+		}
+
+		// Write all the sheets in the new Workbook(testData_Copy.xlsx) using
+		// FileOutStream Object
+		outputWorkbook.write(fos);
+		// At the end of the Program close the FileOutputStream object.
+		fos.close();
+	}
+
+/*	public static Object callback() {
+		if (req.readyState == 4) {
+	        if (req.status == 200) {
+	            // update the HTML DOM based on whether or not message is valid
+	        }
+	    }
+		return null;
+	}*/
+
+	public static void copySheet(XSSFSheet inputSheet, XSSFSheet outputSheet) {
+		int rowCount = inputSheet.getLastRowNum();
+		System.out.println(rowCount + " rows in inputsheet " + inputSheet.getSheetName());
+
+		int currentRowIndex = 0;
+		if (rowCount > 0) {
+			Iterator rowIterator = inputSheet.iterator();
+			while (rowIterator.hasNext()) {
+				int currentCellIndex = 0;
+				Iterator cellIterator = ((Row) rowIterator.next()).cellIterator();
+				while (cellIterator.hasNext()) {
+					// Creating new Row, Cell and Input value in the newly
+					// created sheet.
+					String cellData = cellIterator.next().toString();
+					if (currentCellIndex == 0)
+						outputSheet.createRow(currentRowIndex).createCell(currentCellIndex).setCellValue(cellData);
+					else
+						outputSheet.getRow(currentRowIndex).createCell(currentCellIndex).setCellValue(cellData);
+
+					currentCellIndex++;
+				}
+				currentRowIndex++;
+			}
+			System.out.println((currentRowIndex - 1) + " rows added to outputsheet " + outputSheet.getSheetName());
+			System.out.println();
+		}
+
+	}
+
+	public void writeExcel(String filePath, String sheetName, String url) throws IOException {
+
+		File file = new File(filePath);
+
+		FileInputStream inputStream = new FileInputStream(file);
+
+		Workbook guru99Workbook = null;
+
+		guru99Workbook = new XSSFWorkbook(inputStream);
+
+		Sheet sheet = guru99Workbook.getSheet(sheetName);
+
+		int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
+
+		Row row = sheet.getRow(0);
+
+		Row newRow = sheet.createRow(rowCount + 1);
+
+		for (int j = 0; j < row.getLastCellNum(); j++) {
+
+			Cell cell = (Cell) newRow.createCell(j);
+
+			((org.apache.poi.ss.usermodel.Cell) cell).setCellValue(url);
+
+		}
+
+		inputStream.close();
+
+		FileOutputStream outputStream = new FileOutputStream(file);
+
+		guru99Workbook.write(outputStream);
+
+		outputStream.close();
+
+	}
+
+}
